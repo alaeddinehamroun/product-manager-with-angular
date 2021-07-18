@@ -4,7 +4,6 @@ import { IProduct } from "./product";
 import { ProductService } from "./product.service";
 
 @Component({
-    selector: 'pm-products',
     templateUrl: './product-list.component.html',
     styleUrls: ['./product-list.component.css']
 })
@@ -31,9 +30,7 @@ export class ProductListComponent implements OnInit, OnDestroy{
 
     products: IProduct[] = [];
     constructor(private productService: ProductService){}
-  ngOnDestroy(): void {
-    throw new Error("Method not implemented.");
-  }
+
     toggleImage(): void {
 
         this.showImage=!this.showImage;
@@ -48,7 +45,7 @@ export class ProductListComponent implements OnInit, OnDestroy{
       });
     }
 
-    onDestroy(){
+    ngOnDestroy(){
       this.sub.unsubscribe();
     }
 
